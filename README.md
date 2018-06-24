@@ -3,7 +3,7 @@ Animacja Szkieletowa 2D is an application made for the purpose of university pro
 
 
 ## Features
-*Doesn't really bring any useful features yet.
+* Doesn't really bring any useful features yet.
 
 
 
