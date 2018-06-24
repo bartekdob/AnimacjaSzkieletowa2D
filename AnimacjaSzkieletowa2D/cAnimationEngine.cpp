@@ -17,18 +17,20 @@ cAnimationEngine::~cAnimationEngine()
 
 void cAnimationEngine::animate(RenderWindow &window, cSkeletonPositions &positions, cSkeleton &skeleton)
 {
+
+
 	while (window.isOpen())
 	{
-		while (window.pollEvent(e))
-		{
-			if (e.type == Event::Closed)
-			{
-				window.close();
-			}
-		}
-
 		for (int i = 0; i < positions.getPositionsVector().size(); i++)
 		{
+			while (window.pollEvent(e))
+			{
+				if (e.type == Event::Closed)
+				{
+					window.close();
+				}
+			}
+
 			window.clear(Color::Black);
 			skeleton.setPositions(positions.getPositionsVector()[i]);
 			skeleton.draw(window);

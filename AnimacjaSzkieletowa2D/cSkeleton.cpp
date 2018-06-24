@@ -4,7 +4,7 @@
 
 cSkeleton::cSkeleton()
 {
-	torso.getShape().move(Vector2f(200, 200));   // TEMP 
+	//torso.getShape().move(Vector2f(200, 200));   // TEMP 
 	head.getShape().setSize(Vector2f(1, 20));
 
 
@@ -47,18 +47,29 @@ cSkeleton::~cSkeleton()
 void cSkeleton::draw(RenderWindow &window)
 {
 	window.draw(torso.getShape());
+	window.draw(torso.getMesh());
 
 	window.draw(lTibia.getShape());
+	window.draw(lTibia.getMesh());
+	window.draw(lThigh.getShape());
+	window.draw(lThigh.getMesh());
 	window.draw(lForearm.getShape());
+	window.draw(lForearm.getMesh());
 	window.draw(lArm.getShape());
+	window.draw(lArm.getMesh());
 
 	window.draw(rTibia.getShape());
+	window.draw(rTibia.getMesh());
 	window.draw(rThigh.getShape());
+	window.draw(rThigh.getMesh());
 	window.draw(rForearm.getShape());
+	window.draw(rForearm.getMesh());
 	window.draw(rArm.getShape());
+	window.draw(rArm.getMesh());
 
 	window.draw(head.getShape());
-	window.draw(lThigh.getShape());
+	window.draw(head.getMesh());
+
 
 }
 

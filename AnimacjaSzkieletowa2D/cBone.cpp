@@ -5,8 +5,7 @@
 cBone::cBone()
 {
 	shape.setFillColor(Color::White);
-	shape.setSize(Vector2f(1, 50));
-	length = 50;
+	shape.setSize(Vector2f(1, length));
 
 }
 
@@ -20,12 +19,16 @@ RectangleShape& cBone::getShape()
 	return shape;
 }
 
+ConvexShape & cBone::getMesh()
+{
+	return mesh;
+}
+
 void cBone::addChild(cBone & child)
 {
 	ChildBones.push_back(&child);
 	child.parentBone = this;
 	child.getShape().setPosition(getShape().getPosition().x - sin(getShape().getRotation() * PI/180) * length, getShape().getPosition().y + cos(getShape().getRotation() * PI/180) * length);
-
 }
 
 void cBone::rotate(int angle)
@@ -40,9 +43,9 @@ void cBone::rotate(int angle)
 
 void cBone::move(Vector2f vect)
 {
+	shape.move(vect);
 	for (int i = 0; i < ChildBones.size(); i++)
 	{
-		ChildBones[i]->getShape().move(vect);
 		ChildBones[i]->move(vect);
 	}
 }
